@@ -15,7 +15,8 @@ from typing import Any, Dict, Iterator, List, Optional
 from dateutil.parser import parse as parse_time
 from googleapiclient.discovery import build
 from langchain_core.tools import tool
-from models import (
+
+from src.tools.schemas import (
     CheckCalendarInput,
     FetchEmailsInput,
     ScheduleMeetingInput,
@@ -90,7 +91,9 @@ def get_credentials(gmail_token=None, gmail_secret=None):
                 token_data = json.loads(env_token)
                 logger.info("Using GMAIL_TOKEN environment variable")
             except Exception as e:
-                logger.warning(f"Could not parse GMAIL_TOKEN environment variable: {str(e)}")
+                logger.warning(
+                    f"Could not parse GMAIL_TOKEN environment variable: {str(e)}"
+                )
 
     if token_data is None:
         if os.path.exists(token_path):
