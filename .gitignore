@@ -9,5 +9,9 @@ wheels/
 # Virtual environments
 .venv
 
-# env
+# env and secrets
 .env
+.secrets
+
+# LangGraph files
+.langgraph_api
