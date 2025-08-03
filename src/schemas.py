@@ -30,7 +30,7 @@ class State(MessagesState):
     """
 
     email_input: dict
-    classification_decision: Literal["ignore", "notify", "respond"]
+    classification_decision: Literal["ignore", "notify", "respond"] | None = None
 
 
 class EmailData(BaseModel):
